@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AgroPay+ - Reportes</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/reportes.css" />
+  </head>
+  <body class="d-flex flex-column min-vh-100">
+
+    <main class="flex-grow-1 py-4">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-9">
+            <div class="card shadow-sm mb-4">
+              <div class="card-header bg-light">
+                <h4 class="mb-0">
+                  <i class="bi bi-graph-up"></i> Reportes y Estadísticas
+                </h4>
+              </div>
+              <div class="card-body">
+                <div class="row mb-4 g-3">
+                  <div class="col-md-4">
+                    <select id="tipoReporte" class="form-select">
+                      <option value="ventas">Ventas por período</option>
+                      <option value="clientes">Clientes principales</option>
+                      <option value="productos">Productos más vendidos</option>
+                      <option value="creditos">Estado de créditos</option>
+                      <option value="pagos">Histórico de pagos</option>
+                    </select>
+                  </div>
+                  <div class="col-md-4">
+                    <input type="date" id="fechaInicio" class="form-control" />
+                  </div>
+                  <div class="col-md-4">
+                    <input type="date" id="fechaFin" class="form-control" />
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-12 mb-4">
+                    <div class="card h-100">
+                      <div
+                        class="card-header d-flex justify-content-between align-items-center"
+                      >
+                        <h5 id="tituloGraficoPrincipal">Ventas Mensuales</h5>
+                        <div class="btn-group">
+                          <button
+                            class="btn btn-sm btn-outline-primary"
+                            id="btnExportarPDF"
+                          >
+                            <i class="bi bi-file-earmark-pdf"></i> PDF
+                          </button>
+                          <button
+                            class="btn btn-sm btn-outline-success"
+                            id="btnExportarExcel"
+                          >
+                            <i class="bi bi-file-earmark-excel"></i> Excel
+                          </button>
+                        </div>
+                      </div>
+                      <div class="card-body">
+                        <canvas id="graficoPrincipal" height="300"></canvas>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6 mb-4">
+                    <div class="card h-100">
+                      <div class="card-header">
+                        <h5 id="tituloGraficoSecundario">
+                          Distribución por Cliente
+                        </h5>
+                      </div>
+                      <div class="card-body">
+                        <canvas id="graficoSecundario"></canvas>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6 mb-4">
+                    <div class="card h-100">
+                      <div class="card-header">
+                        <h5 id="tituloGraficoTerciario">Top Productos</h5>
+                      </div>
+                      <div class="card-body">
+                        <canvas id="graficoTerciario"></canvas>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card mt-4">
+                  <div
+                    class="card-header d-flex justify-content-between align-items-center"
+                  >
+                    <h5 id="tituloTabla">Detalle de Ventas</h5>
+                    <button
+                      class="btn btn-sm btn-outline-secondary"
+                      id="btnExportarCSV"
+                    >
+                      <i class="bi bi-download"></i> CSV
+                    </button>
+                  </div>
+                  <div class="card-body">
+                    <div class="table-responsive">
+                      <table class="table table-striped" id="tablaReporte">
+                        <thead>
+                          <tr>
+                            <th id="columna1">Fecha</th>
+                            <th id="columna2">Cliente</th>
+                            <th id="columna3">Monto</th>
+                            <th id="columna4">Estado</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/reportes.js"></script>
+  </body>
+</html>

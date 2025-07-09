@@ -1,0 +1,38 @@
+#tablaClientes th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+}
+
+.client-status {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+
+.status-activo {
+  background-color: var(--primary-color);
+}
+
+.status-inactivo {
+  background-color: var(--secondary-color);
+}
+
+.status-moroso {
+  background-color: #dc3545;
+}
+
+.client-actions .btn {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+}
+
+/* Modal de cliente */
+.modal-cliente .form-label {
+  font-weight: 500;
+}
+
+.modal-cliente .form-control {
+  margin-bottom: 1rem;
+}

@@ -1,0 +1,39 @@
+#creditosTab .nav-link {
+  color: var(--secondary-color);
+  font-weight: 500;
+  border: none;
+}
+
+#creditosTab .nav-link.active {
+  color: var(--primary-color);
+  border-bottom: 2px solid var(--primary-color);
+}
+
+.credito-disponible {
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.credito-utilizado {
+  font-weight: 600;
+  color: #dc3545;
+}
+
+.vencido-dias {
+  font-weight: 600;
+  color: #dc3545;
+}
+
+#listaVencimientos .list-group-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.vencimiento-cliente {
+  font-weight: 500;
+}
+
+.vencimiento-monto {
+  font-weight: 600;
+}

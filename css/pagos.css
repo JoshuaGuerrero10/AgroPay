@@ -1,0 +1,46 @@
+.pago-metodo {
+  display: inline-block;
+  padding: 0.35em 0.65em;
+  font-size: 0.75em;
+  font-weight: 600;
+  border-radius: 0.25rem;
+}
+
+.metodo-efectivo {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.metodo-transferencia {
+  background-color: #cce5ff;
+  color: #004085;
+}
+
+.metodo-cheque {
+  background-color: #e2e3e5;
+  color: #383d41;
+}
+
+.factura-saldo {
+  font-weight: 600;
+}
+
+.factura-saldo-pendiente {
+  color: #dc3545;
+}
+
+.factura-saldo-pagado {
+  color: #28a745;
+}
+
+#tablaFacturasAplicar tbody tr {
+  vertical-align: middle;
+}
+
+#tablaFacturasAplicar .form-check-input {
+  margin-top: 0;
+}
+
+#tablaFacturasAplicar .monto-aplicar {
+  max-width: 100px;
+}

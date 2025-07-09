@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AgroPay+ - Conocimiento</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/conocimiento.css" />
+  </head>
+  <body class="d-flex flex-column min-vh-100">
+
+    <main class="flex-grow-1 py-4">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-9">
+            <div class="card shadow-sm mb-4">
+              <div class="card-header bg-light">
+                <h4 class="mb-0"><i class="bi bi-book"></i> Sección Técnica</h4>
+              </div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-3">
+                    <div class="list-group" id="categoriasConocimiento">
+                      <a
+                        href="#"
+                        class="list-group-item list-group-item-action active"
+                        data-categoria="todos"
+                      >
+                        Todos los temas
+                      </a>
+                      <a
+                        href="#"
+                        class="list-group-item list-group-item-action"
+                        data-categoria="cultivos"
+                      >
+                        Manejo de cultivos
+                      </a>
+                      <a
+                        href="#"
+                        class="list-group-item list-group-item-action"
+                        data-categoria="plagas"
+                      >
+                        Control de plagas
+                      </a>
+                      <a
+                        href="#"
+                        class="list-group-item list-group-item-action"
+                        data-categoria="riego"
+                      >
+                        Riego eficiente
+                      </a>
+                      <a
+                        href="#"
+                        class="list-group-item list-group-item-action"
+                        data-categoria="finanzas"
+                      >
+                        Finanzas agrícolas
+                      </a>
+                    </div>
+                  </div>
+
+                  <div class="col-md-9">
+                    <div class="input-group mb-4">
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="busquedaConocimiento"
+                        placeholder="Buscar en la sección técnica..."
+                      />
+                      <button
+                        class="btn btn-success"
+                        type="button"
+                        id="btnBuscarConocimiento"
+                      >
+                        <i class="bi bi-search"></i>
+                      </button>
+                    </div>
+
+                    <div class="row" id="contenidoConocimiento">
+                      <div class="col-md-6 mb-4">
+                        <div class="card h-100">
+                          <img
+                            src="https://via.placeholder.com/300x200?text=Riego+Eficiente"
+                            class="card-img-top"
+                            alt="Técnicas de riego"
+                          />
+                          <div class="card-body">
+                            <h5 class="card-title">
+                              Técnicas de riego eficiente
+                            </h5>
+                            <p class="card-text">
+                              Aprenda a optimizar el uso del agua en sus
+                              cultivos con estas técnicas probadas.
+                            </p>
+                            <a href="#" class="btn btn-outline-success"
+                              >Leer más</a
+                            >
+                          </div>
+                          <div class="card-footer">
+                            <small class="text-muted"
+                              >Publicado: 15/06/2023</small
+                            >
+                            <span class="badge bg-success float-end"
+                              >Riego</span
+                            >
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-md-6 mb-4">
+                        <div class="card h-100">
+                          <img
+                            src="https://via.placeholder.com/300x200?text=Control+Plagas"
+                            class="card-img-top"
+                            alt="Control de plagas"
+                          />
+                          <div class="card-body">
+                            <h5 class="card-title">
+                              Control orgánico de plagas
+                            </h5>
+                            <p class="card-text">
+                              Métodos naturales para proteger sus cultivos sin
+                              químicos dañinos.
+                            </p>
+                            <a href="#" class="btn btn-outline-success"
+                              >Leer más</a
+                            >
+                          </div>
+                          <div class="card-footer">
+                            <small class="text-muted"
+                              >Publicado: 10/06/2023</small
+                            >
+                            <span class="badge bg-warning float-end"
+                              >Plagas</span
+                            >
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+
+                    <h5 class="mt-4 mb-3">
+                      <i class="bi bi-camera-video"></i> Videos instructivos
+                    </h5>
+                    <div class="row" id="videosConocimiento">
+                      <div class="col-md-4 mb-4">
+                        <div class="card">
+                          <div class="ratio ratio-16x9">
+                            <iframe
+                              src="https://www.youtube.com/embed/ejemplo1"
+                              allowfullscreen
+                            ></iframe>
+                          </div>
+                          <div class="card-body">
+                            <h6 class="card-title">Preparación de suelo</h6>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-md-4 mb-4">
+                        <div class="card">
+                          <div class="ratio ratio-16x9">
+                            <iframe
+                              src="https://www.youtube.com/embed/ejemplo2"
+                              allowfullscreen
+                            ></iframe>
+                          </div>
+                          <div class="card-body">
+                            <h6 class="card-title">Podas básicas</h6>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-md-4 mb-4">
+                        <div class="card">
+                          <div class="ratio ratio-16x9">
+                            <iframe
+                              src="https://www.youtube.com/embed/ejemplo3"
+                              allowfullscreen
+                            ></iframe>
+                          </div>
+                          <div class="card-body">
+                            <h6 class="card-title">Fertilización orgánica</h6>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div
+      class="modal fade"
+      id="verArticuloModal"
+      tabindex="-1"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header bg-success text-white">
+            <h5 class="modal-title" id="articuloTitulo">Título del Artículo</h5>
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body" id="articuloContenido">
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cerrar
+            </button>
+            <button type="button" class="btn btn-success">
+              <i class="bi bi-download"></i> Descargar PDF
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/conocimiento.js"></script>
+  </body>
+</html>

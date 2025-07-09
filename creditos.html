@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AgroPay+ - Créditos</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/creditos.css" />
+  </head>
+  <body class="d-flex flex-column min-vh-100">
+
+    <main class="flex-grow-1 py-4">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-9">
+            <div class="card shadow-sm mb-4">
+              <div class="card-header bg-light">
+                <h4 class="mb-0">
+                  <i class="bi bi-coin"></i> Administración de Créditos
+                </h4>
+              </div>
+              <div class="card-body">
+                <ul class="nav nav-tabs mb-4" id="creditosTab" role="tablist">
+                  <li class="nav-item" role="presentation">
+                    <button
+                      class="nav-link active"
+                      id="activos-tab"
+                      data-bs-toggle="tab"
+                      data-bs-target="#activos"
+                      type="button"
+                    >
+                      Activos
+                    </button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button
+                      class="nav-link"
+                      id="vencidos-tab"
+                      data-bs-toggle="tab"
+                      data-bs-target="#vencidos"
+                      type="button"
+                    >
+                      Vencidos
+                    </button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button
+                      class="nav-link"
+                      id="historial-tab"
+                      data-bs-toggle="tab"
+                      data-bs-target="#historial"
+                      type="button"
+                    >
+                      Historial
+                    </button>
+                  </li>
+                </ul>
+
+                <div class="tab-content" id="creditosTabContent">
+                  <div
+                    class="tab-pane fade show active"
+                    id="activos"
+                    role="tabpanel"
+                  >
+                    <div class="table-responsive">
+                      <table
+                        class="table table-hover"
+                        id="tablaCreditosActivos"
+                      >
+                        <thead>
+                          <tr>
+                            <th>Cliente</th>
+                            <th>Límite</th>
+                            <th>Utilizado</th>
+                            <th>Disponible</th>
+                            <th>Vencimiento</th>
+                            <th>Acciones</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+                  <div class="tab-pane fade" id="vencidos" role="tabpanel">
+                    <div class="table-responsive">
+                      <table
+                        class="table table-hover"
+                        id="tablaCreditosVencidos"
+                      >
+                        <thead>
+                          <tr>
+                            <th>Cliente</th>
+                            <th>Monto Vencido</th>
+                            <th>Días de Atraso</th>
+                            <th>Acciones</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+                  <div class="tab-pane fade" id="historial" role="tabpanel">
+                    <div class="table-responsive">
+                      <table
+                        class="table table-hover"
+                        id="tablaHistorialCreditos"
+                      >
+                        <thead>
+                          <tr>
+                            <th>Fecha</th>
+                            <th>Cliente</th>
+                            <th>Acción</th>
+                            <th>Monto</th>
+                            <th>Usuario</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row mt-4">
+                  <div class="col-md-6">
+                    <div class="card h-100">
+                      <div class="card-header">
+                        <h5>Distribución de Créditos</h5>
+                      </div>
+                      <div class="card-body">
+                        <canvas id="graficoCreditos"></canvas>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="card h-100">
+                      <div class="card-header">
+                        <h5>Próximos Vencimientos</h5>
+                      </div>
+                      <div class="card-body">
+                        <ul class="list-group" id="listaVencimientos">
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div
+      class="modal fade"
+      id="gestionCreditoModal"
+      tabindex="-1"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header bg-success text-white">
+            <h5 class="modal-title">Ajustar Límite de Crédito</h5>
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form id="formCredito">
+              <div class="mb-3">
+                <label class="form-label">Cliente</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="creditoCliente"
+                  readonly
+                />
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Límite Actual</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="creditoLimiteActual"
+                  readonly
+                />
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Nuevo Límite</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="creditoNuevoLimite"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Razón del Cambio</label>
+                <textarea class="form-control" rows="3" required></textarea>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cancelar
+            </button>
+            <button type="button" class="btn btn-success" id="guardarCredito">
+              Guardar Cambios
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/creditos.js"></script>
+  </body>
+</html>
