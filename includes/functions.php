@@ -9,7 +9,12 @@ if (!function_exists('ejecutarConsulta')) {
         }
         
         if (!empty($params)) {
-            $tipos = str_repeat('s', count($params));
+            $tipos = '';
+            foreach ($params as $param) {
+                if (is_int($param)) $tipos .= 'i';
+                elseif (is_double($param)) $tipos .= 'd';
+                else $tipos .= 's';
+            }
             $stmt->bind_param($tipos, ...$params);
         }
         
@@ -17,13 +22,13 @@ if (!function_exists('ejecutarConsulta')) {
         $result = $stmt->get_result();
         
         $filas = [];
-        while ($fila = $result->fetch_assoc()) {
-            $filas[] = $fila;
+        if ($result) {
+            while ($fila = $result->fetch_assoc()) {
+                $filas[] = $fila;
+            }
         }
         
         $stmt->close();
-        cerrarConexion($conn);
-        
         return $filas;
     }
 }
@@ -34,6 +39,7 @@ if (!function_exists('obtenerUnRegistro')) {
         return $resultados[0] ?? null;
     }
 }
+
 
 if (!function_exists('formatearFecha')) {
     function formatearFecha($fecha, $formato = 'd/m/Y') {
@@ -48,3 +54,51 @@ if (!function_exists('formatearFecha')) {
         }
     }
 }
+
+if (!function_exists('mostrarMensajes')) {
+    function mostrarMensajes($tipo = 'info', $mensaje = '', $autoCerrar = true) {
+        $clases = [
+            'error'   => 'alert alert-danger',
+            'success' => 'alert alert-success',
+            'info'    => 'alert alert-info',
+            'warning' => 'alert alert-warning'
+        ];
+        
+        if (!array_key_exists($tipo, $clases)) {
+            $tipo = 'info';
+        }
+        
+        $html = '<div class="'.$clases[$tipo].'" role="alert">';
+        $html .= htmlspecialchars($mensaje);
+        
+        if ($autoCerrar) {
+            $html .= '<button type="button" class="close" data-dismiss="alert" aria-label="Close">';
+            $html .= '<span aria-hidden="true">&times;</span>';
+            $html .= '</button>';
+        }
+        
+        $html .= '</div>';
+        
+        return $html;
+    }
+}
+
+if (!function_exists('sanitizarInput')) {
+    function sanitizarInput($data) {
+        if (is_array($data)) {
+            return array_map('sanitizarInput', $data);
+        }
+        
+        return htmlspecialchars(trim($data), ENT_QUOTES, 'UTF-8');
+    }
+}
+
+if (!function_exists('generarTokenCSRF')) {
+    function generarTokenCSRF() {
+        if (empty($_SESSION['csrf_token'])) {
+            $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+        }
+        return $_SESSION['csrf_token'];
+    }
+}
+?>

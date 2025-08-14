@@ -45,3 +45,16 @@ function verificarDisponibilidadCredito($cliente_id, $monto) {
     
     return ($resultado['disponible'] >= $monto);
 }
+
+function mostrarMensajes($tipo = 'info', $mensaje = '') {
+    $clases = [
+        'error' => 'alert-danger',
+        'success' => 'alert-success',
+        'info' => 'alert-info'
+    ];
+    
+    if(!empty($mensaje)) {
+        return '<div class="alert '.$clases[$tipo].'">'.$mensaje.'</div>';
+    }
+    return '';
+}

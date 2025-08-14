@@ -20,7 +20,8 @@ include 'includes/header.php';
                     <h4 class="mb-0"><i class="bi bi-tree"></i> AgroPay+ - Inicio de Sesión</h4>
                 </div>
                 <div class="card-body">
-                    <?php mostrarMensajes(); ?>
+                    <?phprequire_once 'functions.php';
+                    echo mostrarMensajes('success', 'Bienvenido al sistema');?>
                     <form action="modules/auth/login.php" method="POST">
                         <div class="mb-3">
                             <label for="email" class="form-label">Correo Electrónico</label>
