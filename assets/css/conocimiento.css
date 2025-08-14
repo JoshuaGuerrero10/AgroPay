@@ -1,0 +1,32 @@
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+
+.list-group-item.active {
+  background-color: #28a745;
+  border-color: #28a745;
+}
+
+.ratio-16x9 {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+}
+
+.ratio-16x9 iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#contenidoArticulos .card {
+  transition: transform 0.2s;
+}
+
+#contenidoArticulos .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}

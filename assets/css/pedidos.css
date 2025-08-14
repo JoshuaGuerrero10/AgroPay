@@ -1,0 +1,31 @@
+#tablaProductos {
+  font-size: 0.9rem;
+}
+
+#tablaProductos th {
+  white-space: nowrap;
+}
+
+#tablaProductos .eliminar-producto {
+  padding: 0.25rem 0.5rem;
+}
+
+.producto-select {
+  min-width: 200px;
+}
+
+.cantidad {
+  max-width: 80px;
+}
+
+.precio-unitario,
+.subtotal {
+  font-weight: 500;
+  text-align: right;
+  white-space: nowrap;
+}
+
+#totalPedido {
+  font-size: 1.1rem;
+  color: #28a745;
+}

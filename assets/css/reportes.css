@@ -1,0 +1,48 @@
+.card-reporte {
+  transition: all 0.3s ease;
+}
+
+.card-reporte:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.table-reporte th {
+  white-space: nowrap;
+  position: sticky;
+  top: 0;
+  background-color: #f8f9fa;
+  z-index: 10;
+}
+
+.badge-estado {
+  font-size: 0.85em;
+  padding: 0.35em 0.65em;
+}
+
+.card-resumen {
+  border-left: 4px solid;
+}
+
+.card-resumen .card-body {
+  padding: 1rem;
+}
+
+.table-responsive {
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+.btn-export {
+  min-width: 100px;
+}
+
+.filter-card {
+  background-color: #f8f9fa;
+  border-radius: 0.5rem;
+}
+
+.total-cell {
+  font-weight: bold;
+  background-color: rgba(0, 123, 255, 0.1);
+}
